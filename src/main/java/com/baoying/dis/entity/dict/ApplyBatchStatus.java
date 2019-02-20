@@ -41,6 +41,16 @@ public enum ApplyBatchStatus {
         throw new IllegalArgumentException(MessageFormat.format("没有值为 [{0}] 的状态！", value));
     }
 
+    /**
+     * 直接判断是否是该枚举值
+     *
+     * @param value
+     * @return
+     */
+    public boolean is(int value) {
+        return this.value == value;
+    }
+
     @Override
     public String toString() {
         return MessageFormat.format("{0} - value:{1}, description:{2}", name(), value, description);
