@@ -10,9 +10,10 @@ import java.text.MessageFormat;
 public enum ApplyBatchStatus {
     UPLOAD(0, "上传"),
     AUDIT(1, "法务审核中"),
-    EXECUTE(2, "执行签章中"),
-    FINISH(3, "已完成"),
-    BREAKOFF(4, "意外中断");
+    PASS_AUDIT(2, "法务通过审核"),
+    EXECUTE(3, "执行签章中"),
+    FINISH(4, "已完成"),
+    BREAKOFF(5, "意外中断");
 
     private ApplyBatchStatus(int value, String description) {
         this.value = value;
