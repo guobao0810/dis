@@ -18,10 +18,6 @@ import java.util.Date;
 @Setter
 @Getter
 public abstract class BaseEntity implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @CreatedDate
     @Column
     private Date createTime;

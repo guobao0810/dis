@@ -1,6 +1,6 @@
 package com.baoying.dis.entity;
 
-import com.baoying.dis.assets.base.BaseEntity;
+import com.baoying.dis.assets.base.IDBaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,9 +14,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "t_apply_batch")
-@Getter
-@Setter
-public class ApplyBatch extends BaseEntity {
+@Getter @Setter
+public class ApplyBatch extends IDBaseEntity {
 
     // 批号
     @Column(name="batch_no", unique = true, nullable = false, length = 17)

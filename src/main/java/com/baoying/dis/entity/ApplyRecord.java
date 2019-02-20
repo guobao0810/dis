@@ -1,6 +1,6 @@
 package com.baoying.dis.entity;
 
-import com.baoying.dis.assets.base.BaseEntity;
+import com.baoying.dis.assets.base.IDBaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "t_apply_record")
 @Setter @Getter
-public class ApplyRecord extends BaseEntity {
+public class ApplyRecord extends IDBaseEntity {
     // 月份
     private String month;
     // ID （客户 ID）
