@@ -4,18 +4,10 @@ import lombok.Getter;
 
 import java.text.MessageFormat;
 
-/**
- * 申请批次的状态枚举
- */
-public enum ApplyBatchStatus {
-    UPLOAD(0, "上传"),
-    AUDIT(1, "法务审核中"),
-    PASS_AUDIT(2, "法务通过审核"),
-    EXECUTE(3, "执行签章中"),
-    FINISH(4, "已完成"),
-    BREAKOFF(5, "意外中断");
+public enum ApplyRecordStatus {
+    OK(0, "成功"), FAIL(1, "失败");
 
-    ApplyBatchStatus(int value, String description) {
+    ApplyRecordStatus(int value, String description) {
         this.value = value;
         this.description = description;
     }
@@ -32,10 +24,10 @@ public enum ApplyBatchStatus {
      * @param value
      * @return
      */
-    public static ApplyBatchStatus of(int value) {
-        for (ApplyBatchStatus applyBatchStatus : ApplyBatchStatus.values()) {
-            if (applyBatchStatus.is(value)) {
-                return applyBatchStatus;
+    public static ApplyRecordStatus of(int value) {
+        for (ApplyRecordStatus applyRecordStatus : ApplyRecordStatus.values()) {
+            if (applyRecordStatus.is(value)) {
+                return applyRecordStatus;
             }
         }
         throw new IllegalArgumentException(MessageFormat.format("没有值为 [{0}] 的状态！", value));
