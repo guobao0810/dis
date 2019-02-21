@@ -5,7 +5,9 @@ import lombok.Getter;
 import java.text.MessageFormat;
 
 public enum ApplyRecordStatus {
-    OK(0, "成功"), FAIL(1, "失败");
+    WAIT(0, "等待处理"),
+    OK(1, "成功"),
+    FAIL(2, "失败");
 
     ApplyRecordStatus(int value, String description) {
         this.value = value;
