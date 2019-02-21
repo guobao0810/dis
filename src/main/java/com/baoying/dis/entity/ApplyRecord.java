@@ -43,6 +43,9 @@ public class ApplyRecord extends IDBaseEntity {
     // 状态
     @Column
     private int status;
+    // 已签署的收入证明 pdf 文件路径
+    @Column(name = "pdf_path")
+    private String pdfPath;
 
     @ManyToOne
     @JoinColumn(name="batch_no", referencedColumnName = "batch_no")
