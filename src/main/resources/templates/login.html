@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>登录</title>
+    <link th:href="@{/statics/css/login.css}" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+
+<div class="login">
+    <div class="message">电子签章管理系统</div>
+    <div id="darkbannerwrap"></div>
+
+    <form id="login-form" method="post" onsubmit="return false;">
+        <input id="username" name="username" placeholder="用户名" type="text"
+               autocomplete="off">
+        <hr class="hr15">
+        <input id="password" name="password" placeholder="密码" type="password"
+               autocomplete="off">
+        <hr class="hr15">
+        <button style="width: 100%;" type="submit"
+                onclick="login(this)">登录</button>
+        <hr class="hr20">
+        <span id="info" style="color: red"></span>
+    </form>
+
+
+</div>
+
+</body>
+<script th:src="@{/statics/js/libs/jquery-2.1.1.min.js}"></script>
+<script type="text/javascript">
+    function login(obj) {
+        $(obj).attr("disable",true);
+        var username = $("#username").val();
+        var password = $("#password").val();
+        if(username == "" && password ==""){
+            $("#info").html("用户名或者账号不能为空");
+            $(obj).attr("disable",false);
+            return false;
+        }else{
+            $.ajax({
+                url:"/authentication/ajax",
+                type:"post",
+                data:$("#login-form").serialize(),
+                success:function(data){
+                    if(data.code == '200'){
+                        if(data.data[0].roleName == 'ROLE_KEFU'){
+                            location.href = '/csr'
+                        }else if(data.data[0].roleName == 'ROLE_FAWU'){
+                            location.href = '/lgl'
+                        }
+                    }else if(data.code == '500'){
+                        alert(data.message);
+                    }else {
+                        alert("错误信息")
+                    }
+                },dataType:"json"
+            });
+        }
+
+    }
+
+</script>
+</html>
