@@ -13,6 +13,8 @@ import java.io.IOException;
  */
 public abstract class JsonUtil {
 
+    public static final String REPONSE_JSON_TYPE = "application/json;charset=utf-8";
+
     public static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     // ObjectMapper 配置项
@@ -61,4 +63,5 @@ public abstract class JsonUtil {
             throw new RuntimeException("读取 JSON 字符串转换为指定类型的对象失败！");
         }
     }
+
 }
